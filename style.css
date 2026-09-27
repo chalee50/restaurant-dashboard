@@ -1,0 +1,82 @@
+/* style.css — ระบบจัดการร้านอาหาร: โทนครัว/ตลาดกลางคืน */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#1c1712; --surface:#241e17; --surface2:#2c2419; --border:#3a3226;
+  --text:#f3ecdf; --muted:#b7ac98;
+  --accent:#e3963e; --accent-ink:#1c1712;
+  --chili:#c1443a; --herb:#7fa65c; --wait:#8a7f6c;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root[data-theme="light"]{
+  --bg:#f1ead9; --surface:#fffdf8; --surface2:#f6efe0; --border:#e0d5bd;
+  --text:#241e17; --muted:#7a6f5c; --accent-ink:#fffaf0;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'IBM Plex Sans Thai',system-ui,sans-serif;font-weight:400;}
+.app{display:flex;min-height:100vh}
+
+/* sidebar */
+.sidebar{width:216px;flex:0 0 auto;background:var(--surface);border-right:1px solid var(--border);
+  padding:1rem .6rem;padding-top:calc(1rem + env(safe-area-inset-top,0px));position:sticky;top:0;height:100vh}
+.brand{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.15rem;color:var(--accent);padding:.3rem .5rem 1.2rem}
+nav{display:flex;flex-direction:column;gap:.25rem}
+nav button{display:flex;align-items:center;gap:.6rem;text-align:left;background:transparent;color:var(--muted);
+  border:none;border-left:3px solid transparent;padding:.55rem .6rem;border-radius:0 8px 8px 0;cursor:pointer;
+  font-family:inherit;font-size:.92rem;font-weight:500}
+nav button .ic{font-size:1.05rem}
+nav button.active{background:var(--surface2);color:var(--accent);border-left-color:var(--accent);font-weight:600}
+
+/* content */
+.content{flex:1;min-width:0}
+.topbar{position:sticky;top:0;background:var(--bg);padding:1rem 1.4rem;padding-top:calc(1rem + env(safe-area-inset-top,0px));
+  border-bottom:1px solid var(--border);z-index:4}
+.topbar h1{margin:0;font-size:1.3rem;font-weight:700}
+main{max-width:920px;margin:0 auto;padding:1.2rem 1.4rem 2rem}
+section{display:none}
+section.active{display:block}
+
+.card{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--accent);
+  border-radius:4px 4px 10px 10px;padding:1rem;margin-bottom:.9rem}
+.card.flat{border-top:1px solid var(--border)}
+h3{margin:0 0 .7rem;font-weight:600;font-size:1rem;color:var(--accent)}
+
+table{width:100%;border-collapse:collapse;overflow-x:auto;display:block}
+th,td{text-align:left;padding:.5rem .5rem;border-bottom:1px solid var(--border);font-size:.9rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+th{color:var(--muted);font-weight:500;font-size:.8rem}
+
+input,select{padding:.5rem .6rem;border:1px solid var(--border);border-radius:6px;background:var(--surface2);
+  color:var(--text);font-size:.9rem;font-family:inherit}
+input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+
+button.btn{background:var(--accent);color:var(--accent-ink);border:none;padding:.5rem .9rem;border-radius:6px;
+  cursor:pointer;font-size:.88rem;font-weight:600;font-family:inherit}
+button.btn.sm{padding:.28rem .6rem;font-size:.8rem;font-weight:500}
+button.btn.gray{background:var(--surface2);color:var(--text);border:1px solid var(--border)}
+button.btn.red{background:var(--chili);color:#fff}
+
+.row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.35rem 0}
+.badge{padding:.15rem .6rem;border-radius:20px;font-size:.75rem;font-weight:600;color:#fff}
+.b-free{background:var(--herb)}.b-occ{background:var(--accent);color:var(--accent-ink)}.b-bill{background:var(--chili)}
+.b-wait{background:var(--wait)}.b-doing{background:var(--accent);color:var(--accent-ink)}.b-done{background:var(--herb)}
+.sub{color:var(--muted);font-size:.85rem}
+
+.total-figure{font-size:1.9rem;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+
+/* mobile: sidebar becomes a bottom icon bar */
+@media (max-width:680px){
+  .app{flex-direction:column}
+  .sidebar{width:100%;height:auto;position:fixed;bottom:0;left:0;z-index:10;
+    padding:.4rem .3rem;padding-bottom:calc(.4rem + env(safe-area-inset-bottom,0px));
+    border-right:none;border-top:1px solid var(--border)}
+  .brand{display:none}
+  nav{flex-direction:row;justify-content:space-around}
+  nav button{flex-direction:column;gap:.15rem;font-size:.68rem;border-left:none;border-top:3px solid transparent;
+    border-radius:8px 8px 0 0;padding:.4rem .3rem}
+  nav button.active{border-left-color:transparent;border-top-color:var(--accent)}
+  .content{padding-bottom:4.2rem}
+  main{padding:1rem}
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "ผัดกะเพราหมู",
+    "category": "อาหารจานเดียว",
+    "price": 50.0,
+    "image": "kaprao.jpg",
+    "out_of_stock": false
+  },
+  {
+    "id": 2,
+    "name": "ข้าวผัดปู",
+    "category": "อาหารจานเดียว",
+    "price": 60.0,
+    "image": "khaopad.jpg",
+    "out_of_stock": false
+  },
+  {
+    "id": 3,
+    "name": "ต้มยำกุ้ง",
+    "category": "ต้ม/แกง",
+    "price": 120.0,
+    "image": "tomyum.jpg",
+    "out_of_stock": false
+  },
+  {
+    "id": 4,
+    "name": "ชาเย็น",
+    "category": "เครื่องดื่ม",
+    "price": 25.0,
+    "image": "chayen.jpg",
+    "out_of_stock": false
+  },
+  {
+    "id": 5,
+    "name": "ชาเขียว",
+    "category": "เครื่องดื่ม",
+    "price": 55.0,
+    "image": "0",
+    "out_of_stock": false
+  }
+]
